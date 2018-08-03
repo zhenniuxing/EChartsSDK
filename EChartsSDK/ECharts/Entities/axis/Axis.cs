@@ -97,13 +97,22 @@ namespace ECharts.Entities.axis
 			set;
 		}
 
-	 
-	 
-
+	
 		public bool scale{
 			get;
 			set;
 		}
+
+        //public int? min
+        //{
+        //    get;
+        //    set;
+        //}
+        //public int? max
+        //{
+        //    get;
+        //    set;
+        //}
 
 		/// 
 		/// <param name="name"></param>
@@ -140,12 +149,6 @@ namespace ECharts.Entities.axis
 		return this; 
 		}
 
-	 
-
-	 
-
-		
-
 		/// 
 		/// <param name="scale"></param>
 		public Axis Scale(bool scale){
@@ -153,7 +156,26 @@ namespace ECharts.Entities.axis
 		return this; 
 		}
 
-		 
+        ///// <summary>
+        ///// 最小值
+        ///// </summary>
+        ///// <param name="min"></param>
+        ///// <returns></returns>
+        //public Axis Min(int min)
+        //{
+        //    this.min = min;
+        //    return this; 
+        //}
+        ///// <summary>
+        ///// 最大值
+        ///// </summary>
+        ///// <param name="max"></param>
+        ///// <returns></returns>
+        //public Axis Max(int max)
+        //{
+        //    this.max = max;
+        //    return this;
+        //}
 
     }
 }

@@ -150,11 +150,29 @@ namespace ECharts.Entities
         [EnumMember(Value = "radial")] radial
     }
 
+    /// <summary>
+    /// 文字字体的风格
+    /// </summary>
     public enum FontStyleType
     {
         [EnumMember(Value = "normal")] normal,
         [EnumMember(Value = "italic")] italic,
         [EnumMember(Value = "oblique")] oblique
+    }
+    /// <summary>
+    /// 字体的粗细
+    /// </summary>
+    public enum FontWeightType
+    {
+        [EnumMember(Value = "normal")]
+        normal,
+        [EnumMember(Value = "bold")]
+        bold,
+        [EnumMember(Value = "bolder")]
+        bolder,
+        [EnumMember(Value = "lighter")]
+        lighter
+        
     }
 
     public enum PositionType

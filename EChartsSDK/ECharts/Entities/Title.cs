@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ECharts.Entities
 {
 	/// <summary>
-	/// �����ļ�
+	/// 标题
 	/// </summary>
     public class Title : Basic<Title>
     {

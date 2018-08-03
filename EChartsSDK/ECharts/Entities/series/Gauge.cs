@@ -9,8 +9,8 @@ namespace ECharts.Entities.series
 {
     public class Gauge : ChartSeries<Gauge>
     {
-        public IList<string> center { get; set; }
-
+        // public IList<string> center { get; set; }
+        public object center { get; set; }
         public object radius { get; set; }
 
         public int? startAngle { get; set; }
@@ -56,6 +56,12 @@ namespace ECharts.Entities.series
         public Gauge Center(IList<string> center)
         {
             this.center = center;
+            return this;
+        }
+
+        public Gauge Center(params string[] center)
+        {
+            this.center = center.ToList();
             return this;
         }
 

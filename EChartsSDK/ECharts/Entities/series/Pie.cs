@@ -8,7 +8,9 @@ namespace ECharts.Entities.series
 {
     public class Pie : ChartSeries<Pie>
     {
-        public IList<string> center { get; set; }
+      //  public IList<string> center { get; set; }
+
+        public object center { get; set; }
 
         public object radius { get; set; }
 
@@ -135,7 +137,12 @@ namespace ECharts.Entities.series
         {
             this.center = center;
             return this;
-        }        
+        }
+        public Pie Center(params string [] center)
+        {
+            this.center = center.ToList();
+            return this;
+        }
 
         public Pie() {
             this.type = ChartType.pie;

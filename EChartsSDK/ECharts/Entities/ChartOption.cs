@@ -4,11 +4,14 @@ using ECharts.Entities.feature;
 using ECharts.Entities.series;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using ECharts.Entities.bmap;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace ECharts.Entities
 {
@@ -41,7 +44,9 @@ namespace ECharts.Entities
 
         public TimeLine timeline { get; set; } //timeline
 
-        public IList<Title> title { get; set; }
+       public IList<Title> title { get; set; }
+
+       // public  Title  title { get; set; }
 
         public ToolBox toolbox { get; set; }
 
@@ -49,6 +54,7 @@ namespace ECharts.Entities
 
         public Legend legend { get; set; }
 
+     //   public RoamController roamController { get; set; }
         public AxisPointer axisPointer { get; set; }
 
         public IList<DataZoom> dataZoom { get; set; }
@@ -87,7 +93,9 @@ namespace ECharts.Entities
 
         public object singleAxis { get; set; }
 
-        public object visualMap { get; set; }
+
+      //  public object visualMap { get; set; }  原始定义
+        public IList<VisualMap> visualMap { get; set; }
 
         public IList<Calendar> calendar { get; set; }
 
@@ -214,7 +222,18 @@ namespace ECharts.Entities
             this.visualMap = values.ToList();
             return this;
         }
-        
+
+        public ChartOption AddVisualMap(VisualMap visualMap)
+        {
+            if (this.visualMap == null)
+            {
+                this.visualMap = new List<VisualMap>();
+            }
+            this.visualMap.Add(visualMap);
+            return this;
+        }
+
+ 
 
         public ChartOption XAxis(params Axis[] values)
         {
@@ -295,7 +314,17 @@ namespace ECharts.Entities
                 this.legend = new Entities.Legend();
             return this.legend;
         }
+        public ChartOption Legend(Legend legend) {
+            this.legend = legend;
+            return this;
+        }
 
+        //public RoamController RoamController()
+        //{
+        //    if (this.roamController == null)
+        //        this.roamController = new Entities.RoamController();
+        //    return this.roamController;
+        //}
         public ChartOption Polar(params Polar[] valuse)
         {
             if (this.polar == null)
@@ -304,10 +333,7 @@ namespace ECharts.Entities
             return this;
         }
 
-        public ChartOption Legend(Legend legend) {
-            this.legend = legend;
-            return this;
-        }
+
 
         public ChartOption Calculable(bool calculable)
         {
@@ -347,6 +373,17 @@ namespace ECharts.Entities
                 this.dataZoom = new List<DataZoom>();
             valuse.ToList().ForEach(v => dataZoom.Add(v));
             return this;
+        }
+
+        public DataZoom DataZoom()
+        {
+  
+
+            if (this.dataZoom == null)
+            {
+                dataZoom = new List<DataZoom> { new DataZoom() };
+            }
+            return this.dataZoom[0];
         }
 
         public ChartOption Grid(params Grid[] valuse)
@@ -479,7 +516,39 @@ namespace ECharts.Entities
             return this;
         }
 
+        //public string ObjectToJson()
+        //{
+        //    Type type = this.GetType();
+        //    Newtonsoft.Json.JsonSerializer json = new Newtonsoft.Json.JsonSerializer();
+        //    //json.NullValueHandling = NullValueHandling.Ignore;
+        //    json.ObjectCreationHandling = Newtonsoft.Json.ObjectCreationHandling.Replace;
+        //    json.MissingMemberHandling = Newtonsoft.Json.MissingMemberHandling.Ignore;
+        //    json.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 
+        //    json.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+        //    IsoDateTimeConverter timeFormate = new IsoDateTimeConverter();
+        //    timeFormate.DateTimeFormat = "yyyy-MM-dd";
+        //    json.Converters.Add(timeFormate);
+        //    json.Formatting = Formatting.Indented;
+        //    json.NullValueHandling = NullValueHandling.Ignore;
+
+           
+        //    StringWriter sw = new StringWriter();
+        //    Newtonsoft.Json.JsonTextWriter writer = new JsonTextWriter(sw);
+        //    writer.Formatting = Formatting.None;
+        //    writer.QuoteChar = '"';
+        //    writer.QuoteName = false;
+        //    json.Serialize(writer, this);
+
+        //    string output = sw.ToString();
+        //    writer.Close();
+        //    sw.Close();
+
+        //    return output;
+           
+        //}
+
+          
         
     }
 }

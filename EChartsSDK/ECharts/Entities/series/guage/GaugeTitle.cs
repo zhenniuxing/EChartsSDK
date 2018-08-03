@@ -11,8 +11,10 @@ namespace ECharts.Entities
     {
         public bool? show { get; set; }
        
-        public IList<string> offsetCenter { get; set; }
-      
+        //public IList<string> offsetCenter { get; set; }
+
+        public object offsetCenter { get; set; }
+
         public TextStyle textStyle { get; set; }
 
 
@@ -28,7 +30,11 @@ namespace ECharts.Entities
             this.offsetCenter = offsetCenter;
             return this;
         }
-
+        public GaugeTitle OffsetCenter(params string[] offsetCenter)
+        {
+            this.offsetCenter = offsetCenter.ToList();
+            return this;
+        }
         public GaugeTitle Show(bool show)
         {
             this.show = show;

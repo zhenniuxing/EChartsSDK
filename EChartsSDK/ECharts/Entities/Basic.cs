@@ -39,8 +39,7 @@ namespace ECharts.Entities
 
         public int? shadowOffsetX { get; set; }
 
-        public int? shadowOffsetY { get; set; }
-
+        public int? shadowOffsetY { get; set; } 
         public object width { get; set; }
 
         public object height { get; set; }
