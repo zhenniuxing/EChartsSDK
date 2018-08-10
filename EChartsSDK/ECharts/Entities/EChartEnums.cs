@@ -239,8 +239,8 @@ namespace ECharts.Entities
         [EnumMember(Value = "graph")] graph,
         [EnumMember(Value = "sankey")] sankey,
         [EnumMember(Value = "pictorialBar")] pictorialBar,
-        [EnumMember(Value = "themeRiver")]
-        themeRiver,
+        [EnumMember(Value = "themeRiver")]themeRiver,
+        [EnumMember(Value = "custom")]custom,
     }
 
     public enum AxisType
